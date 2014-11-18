@@ -7,7 +7,7 @@ setup(
     name="django-refsql",
     version="0.1-dev",
     description="Raw SQL with lookups for Django",
-    long_description=read('readme.rst'),
+    long_description=read('README.md'),
     url='https://github.com/akaariai/django-refsql',
     license='MIT',
     author=u'Anssi Kääriäinen',
