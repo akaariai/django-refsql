@@ -21,5 +21,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    packages=['django_refsql']
+    packages=['refsql']
 )
