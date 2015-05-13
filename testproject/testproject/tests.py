@@ -40,3 +40,16 @@ class TestRefSQL(TestCase):
         ).values_list('height_divided', flat=True).order_by('height_divided')
         self.assertQuerysetEqual(
             qs, [17, 18], lambda x: x)
+
+    def test_in(self):
+        a = Author.objects.create(name='Anssi', height=180, weight=80)
+        m = Author.objects.create(name='Matti', height=170, weight=80)
+        qs = Author.objects.annotate(
+            ref_height=RefSQL('{{height}}')
+        ).filter(ref_height=180)
+        self.assertQuerysetEqual(
+            Author.objects.filter(pk__in=qs),
+            [a], lambda x: x)
+        self.assertQuerysetEqual(
+            Author.objects.exclude(pk__in=qs),
+            [m], lambda x: x)

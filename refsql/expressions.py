@@ -2,7 +2,7 @@ import re
 from django.db import models
 from django.utils.functional import cached_property
 
-class RefSQL(models.ExpressionNode):
+class RefSQL(models.Expression):
     EXTEND_PARAMS_MARKER = object()
 
     def __init__(self, sql, params=(), output_field=None):
